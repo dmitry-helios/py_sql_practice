@@ -1,18 +1,38 @@
-'''
-Приветствую! Если вы читаете эти комменты, то скорее всего всё работает и вы хотите посмотреть на код, или ничего не работает и вы хотите
-посмотреть, что здесь намудрили. В любом случае, спасибо за внимание и уделенное моему тестовому заданию время!
 
-Пара пояснительных комментариев к заданию:
-1. В задании не указаны разрешенные библиотеки, кроме plotly. Я исхожу из того, что pandas и различные модули plotly разрешены как 
-стандартный инструментарий в тулбоксе аналитика.
-2. В задании не уточнено, как именно конвертить рейтинг в числовой вид. Я выбрал метод присвоения минимального рекомендованного 
-возраста по версии ERSB.
-3. Обычно я пишу комментарии на английском, но так как само задание на русском - то и комментарии здесь на русском.
-4. Неясна среда и метод запуска приложения. Поэтому мы не используем CSS, dash_bootstrtap и прочие украшательства. На всякий случай к
-файлу прикладывается requirements.txt.
+# ================================================
+# Dashboard: Video Game Industry Insights
+# ================================================
+# Description:
+# This dashboard allows interactive exploration of video game data
+# from games.csv. Users can filter by platform, genre, and
+# release year (1990-2010) to view key metrics and visualizations.
+#
+# Filters:
+# - Platform (multi-select dropdown)
+# - Genre    (multi-select dropdown)
+# - Year     (range slider)
+#
+# Visuals:
+# 1. Total number of games
+# 2. Average user score
+# 3. Average critic score
+# 4. Average ESRB rating (numeric) by genre (bar/line)
+# 5. Critic vs. User score scatter, colored by genre
+# 6. Stacked area plot: number of releases by year and platform
+#
+# Data preparation:
+# - Exclude games released before 1990 or after 2010
+# - Drop rows with missing values
+# - Convert rating to numeric via ESRB minimum age mapping
+#
+# Comments:
+# 1. Allowed libraries: pandas, plotly (dash, express)
+# 2. Rating conversion uses ESRB minimal recommended age
+#    (e.g., E=6, E10+=10, T=13, M=17, AO=18).
+# 3. Comments are in Russian only for the assignment;
+#    here they are in English per standard.
+# 4. No external CSS or bootstrap; requirements.txt accompanies script.
 
-Задать любые вопросы вы можете через dmitry.gaidai@gmail.com, в ТГ https://t.me/dmitry_helios или через вашего эйчара.
-'''
 
 # Начнем с импорта плотли, дэш, панды и глушилки для FutureWarning 
 import warnings
